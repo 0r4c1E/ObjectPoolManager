@@ -13,7 +13,7 @@ public class PoolItem
     public GameObject item;
 }
 ///<summary>
-/// 0r4c1E's ObjectPoolManager ===== ver. 2.0
+/// 0r4c1E's ObjectPoolManager ===== ver. 1.01
 ///</summary>
 public class PoolManager : MonoBehaviour
 {
