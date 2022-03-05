@@ -27,7 +27,7 @@ public class PoolManager : MonoBehaviour
     ///<summary>
     /// 풀링한 오브젝트들을 보관
     ///</summary>
-    private Dictionary<string, Queue<GameObject>> items;
+    private Dictionary<string, Queue<GameObject>> items = new Dictionary<string, Queue<GameObject>>();
     Queue<GameObject> _buff;
     GameObject _obj;
 
@@ -59,6 +59,7 @@ public class PoolManager : MonoBehaviour
     {
         inst._obj = Instantiate(inst.objects[id].item, Vector3.zero, Quaternion.identity);
         inst._obj.SetActive(false);
+        inst._obj.transform.SetParent(inst.transform);
         return inst._obj;
     }
     ///<summary>
@@ -96,6 +97,7 @@ public class PoolManager : MonoBehaviour
     ///<param name="obj"> 되돌릴 게임오브젝트 </param>
     public static void ReturnPoolObject(string key, GameObject obj)
     {
+        obj.SetActive(false);
         inst.items[key].Enqueue(obj);
     }
 }
