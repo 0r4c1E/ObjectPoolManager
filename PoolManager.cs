@@ -13,7 +13,7 @@ public class PoolItem
     public GameObject item;
 }
 ///<summary>
-/// 0r4c1E's ObjectPoolManager ===== ver. 1.01
+/// 0r4c1E's ObjectPoolManager ===== ver. 1.1
 ///</summary>
 public class PoolManager : MonoBehaviour
 {
@@ -55,7 +55,7 @@ public class PoolManager : MonoBehaviour
     /// 특정 오브젝트를 만들어주는 메서드
     ///</summary>
     ///<param name="id"> 'objects'에서의 리스트 번호 </param>
-    public static GameObject CreateObject(int id)
+    private static GameObject CreateObject(int id)
     {
         inst._obj = Instantiate(inst.objects[id].item, Vector3.zero, Quaternion.identity);
         inst._obj.SetActive(false);
@@ -82,7 +82,7 @@ public class PoolManager : MonoBehaviour
     /// 입력한 'key'값에 맞는 'objects'상의 리스트 번호를 리턴
     ///</summary>
     ///<param name="key"> 'items'에서의 딕셔너리 키값 </param>
-    public static int ReturnListCount(string key)
+    private static int ReturnListCount(string key)
     {
         for (int i = 0; i < inst.objects.Count; i++)
         {
